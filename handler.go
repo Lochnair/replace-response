@@ -154,7 +154,10 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request, next caddyht
 	}
 
 	if status := rec.Status(); status > 0 {
+		fmt.Println("wrote header, with status: ", status)
 		w.WriteHeader(status)
+	} else {
+		fmt.Println("no apparant status)	
 	}
 	w.Write(result)
 
